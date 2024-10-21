@@ -1,0 +1,21 @@
+[
+    {
+      "title": "Silent Voice",
+      "image": "sl.jpeg",
+      "link": "silent.html",
+      "description": "A heart-touching anime about communication."
+    },
+    {
+      "title": "Attack on Titan",
+      "image": "anime2.jpg",
+      "link": "https://example.com/anime2",
+      "description": "Epic battles between humans and titans."
+    },
+    {
+      "title": "Naruto",
+      "image": "anime3.jpg",
+      "link": "https://example.com/anime3",
+      "description": "A young ninja striving to be the strongest."
+    }
+  ]
+  

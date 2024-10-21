@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content="Explore various anime genres"/>
+    <title>Genres | Anitorium</title>
+
+    <style>
+        /* Reusing homepage styles for consistency */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #1d0036;
+            color: #f0e6ff;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .navbar {
+            background-color: #4c0070;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            color: #f0e6ff;
+            text-decoration: none;
+            padding: 10px 20px;
+            font-weight: bold;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .navbar-center h1 {
+            color: #f0e6ff;
+            margin: 0;
+            font-size: 24px;
+        }
+
+        /* Sidebar styling */
+        .sidebar {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: -250px;
+            background-color: #4c0070;
+            padding-top: 20px;
+            transition: 0.3s;
+            z-index: 2000;
+        }
+
+        .sidebar a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #f0e6ff;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: #69309e;
+        }
+
+        .sidebar .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 25px;
+            color: #f0e6ff;
+            cursor: pointer;
+        }
+
+        /* Sidebar search bar */
+        .sidebar-search {
+            margin: 20px 15px;
+            display: flex;
+        }
+
+        .sidebar-search input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 25px;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            background-color: #69309e;
+            color: #f0e6ff;
+        }
+
+        .sidebar-search button {
+            margin-left: 10px;
+            padding: 10px 15px;
+            background-color: #922fcf;
+            border: none;
+            color: white;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .sidebar-search button:hover {
+            background-color: #aa47d3;
+        }
+
+        /* Open button for sidebar */
+        .open-btn {
+            font-size: 30px;
+            cursor: pointer;
+            background-color: transparent;
+            color: #f0e6ff;
+            padding: 10px;
+            border: none;
+        }
+
+        .container {
+            padding: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #f0e6ff;
+        }
+
+        .genres-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4 columns */
+            gap: 20px;
+        }
+
+        .genre-card {
+            background-color: #40005f;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s;
+        }
+
+        .genre-card:hover {
+            transform: scale(1.05);
+        }
+
+        .genre-card h2 {
+            color: #f0e6ff;
+        }
+
+        .genre-card p {
+            color: #d3b3ff;
+        }
+
+        @media (max-width: 768px) {
+            .genres-grid {
+                grid-template-columns: repeat(2, 1fr); /* 2 columns for phones */
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar Section -->
+    <div class="navbar">
+        <button class="open-btn" onclick="openNav()">☰</button>
+        <div class="navbar-center">
+            <h1>Anitorium</h1>
+        </div>
+        <a href="login.html">Login</a>
+    </div>
+
+    <!-- Sidebar Section -->
+    <div id="mySidebar" class="sidebar">
+        <span class="close-btn" onclick="closeNav()">&times;</span>
+        <div class="sidebar-search">
+            <input type="text" placeholder="Search...">
+            <button type="submit">Go</button>
+        </div>
+        <a href="index.html">Home</a>
+        <a href="start_watching.html">Start Watching</a>
+        <a href="upcomings.html">Upcomings</a>
+        <a href="genres.html">Genres</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+    <!-- Main content for Genres -->
+    <div class="container">
+        <h1>Explore Genres</h1>
+        <div class="genres-grid">
+            <div class="genre-card">
+                <h2>Action</h2>
+                <p>Fast-paced anime with intense battles and adventure.</p>
+            </div>
+            <div class="genre-card">
+                <h2>Comedy</h2>
+                <p>Anime that brings laughter and light-hearted fun.</p>
+            </div>
+            <div class="genre-card">
+                <h2>Drama</h2>
+                <p>Emotionally-driven stories with deep character arcs.</p>
+            </div>
+            <div class="genre-card">
+                <h2>Fantasy</h2>
+                <p>Explore magical worlds and supernatural forces.</p>
+            </div>
+            <div class="genre-card">
+                <h2>Horror</h2>
+                <p>Chilling anime that keeps you on the edge of your seat.</p>
+            </div>
+            <div class="genre-card">
+                <h2>Romance</h2>
+                <p>Heartfelt tales of love and relationships.</p>
+            </div>
+            <div class="genre-card">
+                <h2>Sci-Fi</h2>
+                <p>Futuristic settings with advanced technology and space travel.</p>
+            </div>
+            <div class="genre-card">
+                <h2>Slice of Life</h2>
+                <p>Stories reflecting everyday life and its simple moments.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Sidebar open/close functionality
+        function openNav() {
+            document.getElementById("mySidebar").style.left = "0";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidebar").style.left = "-250px";
+        }
+    </script>
+</body>
+</html>

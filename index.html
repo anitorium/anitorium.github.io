@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content="This is the homepage of the website"/>
+    <title>Home | Anitorium</title>
+
+    <!-- CSS Section -->
+    <style>
+        /* General body styling */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #1d0036; /* Deep violet background */
+            color: #f0e6ff; /* Soft white for contrast */
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        /* Navbar styling */
+        .navbar {
+            background-color: #4c0070; /* Rich purple */
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            color: #f0e6ff; /* Softer white */
+            text-decoration: none;
+            padding: 10px 20px;
+            font-weight: bold;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .navbar a:hover {
+            background-color: #69309e; /* Slightly darker violet */
+            border-radius: 10px;
+            transform: scale(1.05);
+        }
+
+        /* Navbar logo text */
+        .navbar-center {
+            text-align: center;
+            flex-grow: 1;
+        }
+
+        .navbar-center h1 {
+            color: #f0e6ff;
+            margin: 0;
+            font-size: 24px;
+        }
+
+        /* Sidebar styling for smaller screens */
+        .sidebar {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: -250px;
+            background-color: #4c0070; /* Rich purple */
+            padding-top: 20px;
+            transition: 0.3s;
+            z-index: 2000;
+            overflow-y: auto; /* Scroll if content overflows */
+        }
+
+        .sidebar a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #f0e6ff;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: #69309e;
+        }
+
+        .sidebar .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 25px;
+            color: #f0e6ff;
+            cursor: pointer;
+        }
+
+        /* Open button for sidebar on smaller screens */
+        .open-btn {
+            font-size: 30px;
+            cursor: pointer;
+            background-color: transparent;
+            color: #f0e6ff;
+            padding: 10px;
+            border: none;
+        }
+
+        /* Search bar inside the sidebar */
+        .sidebar-search {
+            margin: 20px 15px;
+            display: flex;
+        }
+
+        .sidebar-search input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 25px;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            background-color: #69309e; /* Deep violet background for input */
+            color: #f0e6ff;
+        }
+
+        .sidebar-search button {
+            margin-left: 10px;
+            padding: 10px 15px;
+            background-color: #922fcf; /* Bold purple button */
+            border: none;
+            color: white;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .sidebar-search button:hover {
+            background-color: #aa47d3; /* Lighter purple on hover */
+        }
+
+        /* Main content styling */
+        .container {
+            padding: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #f0e6ff;
+        }
+
+        .lead {
+            font-size: 1.5rem;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #d3b3ff; /* Soft purple lead text */
+        }
+
+        section {
+            background-color: #2d004b; /* Darker purple for sections */
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #f0e6ff;
+        }
+
+        .btn {
+            background-color: #922fcf; /* Bold purple */
+            color: #f0e6ff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            cursor: pointer;
+            display: inline-block;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 50, 0.5);
+            background-color: #aa47d3; /* Lighter purple on hover */
+        }
+
+        /* Anime Cards Section (Grid Layout) */
+        .anime-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr); /* 5 columns on larger screens */
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .anime-card {
+            background-color: #40005f; /* Deep purple background */
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .anime-card:hover {
+            transform: scale(1.05);
+        }
+
+        .anime-card img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .anime-card h3 {
+            margin-top: 10px;
+            color: #f0e6ff;
+        }
+
+        .anime-card p {
+            color: #d3b3ff;
+            font-size: 14px;
+        }
+
+        /* Top 3 Anime Section */
+        .top-anime-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 columns for top 3 anime */
+            gap: 5px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar .navbar-center h1 {
+                font-size: 20px;
+            }
+
+            .open-btn {
+                display: block;
+            }
+
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .lead {
+                font-size: 1.2rem;
+            }
+
+            .btn {
+                width: 100%;
+                padding: 10px;
+            }
+
+            /* Responsive grid for smaller screens (2x5 layout for anime cards) */
+            .anime-grid {
+                grid-template-columns: repeat(2, 1fr); /* 2 columns for phones */
+            }
+        }
+
+        /* Image slider container covering the whole screen */
+        .image-slider {
+            width: 100vw; /* Take the full viewport width */
+            height: 100vh; /* Take the full viewport height */
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slider-images {
+            display: flex;
+            width: calc(100vw * 3);
+            height: 70vh;
+            transition: transform 0.5s ease;
+        }
+
+        .slider-images img {
+            width: 100vw; /* Full width of the viewport */
+            height: 70vh; /* Full height of the viewport */
+            object-fit: cover; /* Cover entire space without distortion */
+        }
+
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Section -->
+    <div class="navbar">
+        <button class="open-btn" onclick="openNav()">☰</button>
+        <div class="navbar-center">
+            <h1>Anitorium</h1>
+        </div>
+        <a href="login.html">Login</a>
+    </div>
+
+    <!-- Sidebar Section -->
+    <div id="mySidebar" class="sidebar">
+        <span class="close-btn" onclick="closeNav()">&times;</span>
+        <div class="sidebar-search">
+            <input type="text" placeholder="Search..">
+            <button type="submit">Go</button>
+        </div>
+        <a href="index.html">Home</a>
+        <a href="start watching.html">Start Watching</a>
+        <a href="upcomings.html">Up comings</a>
+        <a href="genres.html">Genres</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+    <!-- Image Slider Section -->
+    <div class="image-slider">
+        <div class="slider-images" id="sliderImages">
+            <a href="https://example.com/anime1" >
+               <img src="ou.jpg" alt="Slide 1">
+            </a>
+            <a href="https://example.com/anime1" >
+               <img src="rh.png" alt="Slide 2">
+            </a>
+            <a href="https://example.com/anime1" >
+               <img src="rt.png" alt="Slide 3">
+            </a>
+        </div>
+        <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="next" onclick="moveSlide(1)">&#10095;</button>
+    </div>
+
+    <!-- Anime Cards Section -->
+    <div class="container">
+        <h1>Top Anime</h1>
+        <div class="anime-grid">
+            <div class="anime-card">
+                <a href="silent .html" >
+                    <img src="sl.jpeg" alt="Anime 1">
+                    <h3>Silent voice </h3>
+                    <p> </p>
+                </a>
+            </div>
+            <div class="anime-card">
+                <a href="https://example.com/anime2" >
+                    <img src="anime2.jpg" alt="Anime 2">
+                    <h3>Anime Title 2</h3>
+                    <p>Description of Anime 2.</p>
+                </a>
+            </div>
+            <div class="anime-card">
+                <a href="https://example.com/anime3" >
+                    <img src="anime3.jpg" alt="Anime 3">
+                    <h3>Anime Title 3</h3>
+                    <p>Description of Anime 3.</p>
+                </a>
+            </div>
+            <div class="anime-card">
+                <a href="https://example.com/anime4" >
+                    <img src="anime4.jpg" alt="Anime 4">
+                    <h3>Anime Title 4</h3>
+                    <p>Description of Anime 4.</p>
+                </a>
+            </div>
+            <div class="anime-card">
+                <a href="https://example.com/anime5" >
+                    <img src="anime5.jpg" alt="Anime 5">
+                    <h3>Anime Title 5</h3>
+                    <p>Description of Anime 5.</p>
+                </a>
+            </div>
+        </div>
+        
+
+        <!-- Recommended Anime Section -->
+        <h1>Recommended Anime</h1>
+        <div class="anime-grid">
+            <div class="anime-card">
+                <a href="https://example.com/recommended1" >
+                    <img src="recommended1.jpg" alt="Recommended Anime 1">
+                    <h3>Recommended Anime Title 1</h3>
+                    <p>Description of Recommended Anime 1.</p>
+                </a>
+            </div>
+            <div class="anime-card">
+                <a href="https://example.com/recommended2" >
+                    <img src="recommended2.jpg" alt="Recommended Anime 2">
+                    <h3>Recommended Anime Title 2</h3>
+                    <p>Description of Recommended Anime 2.</p>
+                </a>
+            </div>
+            <div class="anime-card">
+                <a href="https://example.com/recommended3" >
+                    <img src="recommended3.jpg" alt="Recommended Anime 3">
+                    <h3>Recommended Anime Title 3</h3>
+                    <p>Description of Recommended Anime 3.</p>
+                </a>
+            </div>
+            <div class="anime-card">
+                <a href="https://example.com/recommended4" >
+                    <img src="recommended4.jpg" alt="Recommended Anime 4">
+                    <h3>Recommended Anime Title 4</h3>
+                    <p>Description of Recommended Anime 4.</p>
+                </a>
+            </div>
+            <div class="anime-card">
+                <a href="https://example.com/recommended5" >
+                    <img src="recommended5.jpg" alt="Recommended Anime 5">
+                    <h3>Recommended Anime Title 5</h3>
+                    <p>Description of Recommended Anime 5.</p>
+                </a>
+            </div>
+        </div>
+        
+    </div>
+
+    <!-- JavaScript to handle slider -->
+    <script>
+         let slideIndex = 0;  // Keeps track of the current slide
+
+function moveSlide(n) {
+    const slides = document.getElementById("sliderImages");
+    const totalSlides = slides.children.length;
+    slideIndex = (slideIndex + n + totalSlides) % totalSlides;
+
+    // Update the transform based on the current slide index
+    const slideWidth = slides.children[0].clientWidth;  // Get the width of one slide
+    slides.style.transform = 'translateX(' + (-slideIndex * slideWidth) + 'px)';
+}
+
+// Auto slide eve ry 5 seconds
+setInterval(() => {
+    moveSlide(1);  // Move to the next slide
+ }, 5000);
+ 
+
+        // Sidebar open/close functionality
+        function openNav() {
+            document.getElementById("mySidebar").style.left = "0";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidebar").style.left = "-250px";
+        }
+    </script>
+</body>
+</html>

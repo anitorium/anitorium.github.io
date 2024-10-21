@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content="Upcoming releases and events"/>
+    <title>Upcomings | Anitorium</title>
+
+    <!-- CSS Section -->
+    <style>
+        /* General body styling */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #1d0036; /* Deep violet background */
+            color: #f0e6ff; /* Soft white for contrast */
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        /* Navbar styling */
+        .navbar {
+            background-color: #4c0070; /* Rich purple */
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            color: #f0e6ff; /* Softer white */
+            text-decoration: none;
+            padding: 10px 20px;
+            font-weight: bold;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .navbar a:hover {
+            background-color: #69309e; /* Slightly darker violet */
+            border-radius: 10px;
+            transform: scale(1.05);
+        }
+
+        /* Menu icon styling (reverting to original) */
+        .open-btn {
+            font-size: 30px;
+            cursor: pointer;
+            background-color: transparent;
+            color: #f0e6ff;
+            padding: 10px;
+            border: none;
+        }
+
+        /* Sidebar styling */
+        .sidebar {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: -250px;
+            background-color: #4c0070; /* Rich purple */
+            padding-top: 20px;
+            transition: 0.3s;
+            z-index: 2000;
+            overflow-y: auto; /* Scroll if content overflows */
+        }
+
+        .sidebar a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #f0e6ff;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: #69309e;
+        }
+
+        .sidebar .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 25px;
+            color: #f0e6ff;
+            cursor: pointer;
+        }
+
+        /* Improved search bar styling */
+        .sidebar-search {
+            margin: 20px 15px;
+            display: flex;
+            border: 2px solid #922fcf; /* Border to match the theme */
+            border-radius: 25px;
+            overflow: hidden;
+        }
+
+        .sidebar-search input {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            outline: none;
+            background-color: #2d004b; /* Darker background for input */
+            color: #f0e6ff;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+
+        .sidebar-search input:focus {
+            background-color: #3b005f; /* Slightly lighter background when focused */
+        }
+
+        .sidebar-search button {
+            background-color: #922fcf; /* Bold purple button */
+            border: none;
+            color: white;
+            padding: 12px 15px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .sidebar-search button:hover {
+            background-color: #aa47d3; /* Lighter purple on hover */
+            transform: scale(1.05);
+        }
+
+        /* Main content styling */
+        .container {
+            padding: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #f0e6ff;
+        }
+
+        .anime-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr); /* 5 columns on larger screens */
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .anime-card {
+            background-color: #40005f; /* Deep purple background */
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .anime-card:hover {
+            transform: scale(1.05);
+        }
+
+        .anime-card img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .anime-card h3 {
+            margin-top: 10px;
+            color: #f0e6ff;
+        }
+
+        .anime-card p {
+            color: #d3b3ff;
+            font-size: 14px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .anime-grid {
+                grid-template-columns: repeat(2, 1fr); /* 2 columns for smaller screens */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Section (with original menu icon) -->
+    <div class="navbar">
+        <button class="open-btn" onclick="openNav()">☰</button>
+        <div class="navbar-center">
+            <h1>Anitorium</h1>
+        </div>
+        <a href="login.html">Login</a>
+    </div>
+
+    <!-- Sidebar Section -->
+    <div id="mySidebar" class="sidebar">
+        <span class="close-btn" onclick="closeNav()">&times;</span>
+        <div class="sidebar-search">
+            <input type="text" placeholder="Search...">
+            <button type="submit">Go</button>
+        </div>
+        <a href="index.html">Home</a>
+        <a href="start watching.html">Start Watching</a>
+        <a href="upcomings.html">Upcomings</a>
+        <a href="#">Genres</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+    <!-- Upcomings Section -->
+    <div class="container">
+        <h1>Upcoming Releases</h1>
+        <div class="anime-grid">
+            <div class="anime-card">
+                <img src="upcoming1.jpg" alt="Upcoming Anime 1">
+                <h3>Upcoming Anime Title 1</h3>
+                <p>Release Date: January 2025</p>
+            </div>
+            <div class="anime-card">
+                <img src="upcoming2.jpg" alt="Upcoming Anime 2">
+                <h3>Upcoming Anime Title 2</h3>
+                <p>Release Date: February 2025</p>
+            </div>
+            <div class="anime-card">
+                <img src="upcoming3.jpg" alt="Upcoming Anime 3">
+                <h3>Upcoming Anime Title 3</h3>
+                <p>Release Date: March 2025</p>
+            </div>
+            <div class="anime-card">
+                <img src="upcoming4.jpg" alt="Upcoming Anime 4">
+                <h3>Upcoming Anime Title 4</h3>
+                <p>Release Date: April 2025</p>
+            </div>
+            <div class="anime-card">
+                <img src="upcoming5.jpg" alt="Upcoming Anime 5">
+                <h3>Upcoming Anime Title 5</h3>
+                <p>Release Date: May 2025</p>
+            </div>
+            <div class="anime-card">
+                <img src="upcoming6.jpg" alt="Upcoming Anime 6">
+                <h3>Upcoming Anime Title 6</h3>
+                <p>Release Date: June 2025</p>
+            </div>
+            <div class="anime-card">
+                <img src="upcoming7.jpg" alt="Upcoming Anime 7">
+                <h3>Upcoming Anime Title 7</h3>
+                <p>Release Date: July 2025</p>
+            </div>
+            <div class="anime-card">
+                <img src="upcoming8.jpg" alt="Upcoming Anime 8">
+                <h3>Upcoming Anime Title 8</h3>
+                <p>Release Date: August 2025</p>
+            </div>
+            <div class="anime-card">
+                <img src="upcoming9.jpg" alt="Upcoming Anime 9">
+                <h3>Upcoming Anime Title 9</h3>
+                <p>Release Date: September 2025</p>
+            </div>
+            <div class="anime-card">
+                <img src="upcoming10.jpg" alt="Upcoming Anime 10">
+                <h3>Upcoming Anime Title 10</h3>
+                <p>Release Date: October 2025</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for sidebar functionality -->
+    <script>
+        function openNav() {
+            document.getElementById("mySidebar").style.left = "0";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidebar").style.left = "-250px";
+        }
+    </script>
+</body>
+</html>

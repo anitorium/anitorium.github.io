@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content="This is the homepage of the website"/>
+    <title>Contact Us | Anitorium</title>
+
+    <!-- CSS Section -->
+    <style>
+        /* General body styling */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #1d0036;
+            color: #f0e6ff;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* Navbar styling */
+        .navbar {
+            background-color: #4c0070;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            color: #f0e6ff;
+            text-decoration: none;
+            padding: 10px 20px;
+            font-weight: bold;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .navbar a:hover {
+            background-color: #69309e;
+            border-radius: 10px;
+            transform: scale(1.05);
+        }
+
+        .navbar-center h1 {
+            color: #f0e6ff;
+            margin: 0;
+            font-size: 24px;
+        }
+
+        /* Sidebar styling */
+        .sidebar {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: -250px;
+            background-color: #4c0070;
+            padding-top: 20px;
+            transition: 0.3s;
+            z-index: 2000;
+            overflow-y: auto;
+        }
+
+        .sidebar a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #f0e6ff;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: #69309e;
+        }
+
+        .sidebar .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 25px;
+            color: #f0e6ff;
+            cursor: pointer;
+        }
+
+        /* Search bar inside the sidebar */
+        .sidebar-search {
+            margin: 20px 15px;
+            display: flex;
+        }
+
+        .sidebar-search input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 25px;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            background-color: #69309e;
+            color: #f0e6ff;
+        }
+
+        .sidebar-search button {
+            margin-left: 10px;
+            padding: 10px 15px;
+            background-color: #922fcf;
+            border: none;
+            color: white;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .sidebar-search button:hover {
+            background-color: #aa47d3;
+        }
+
+        .open-btn {
+            font-size: 30px;
+            cursor: pointer;
+            background-color: transparent;
+            color: #f0e6ff;
+            padding: 10px;
+            border: none;
+        }
+
+        /* Main content styling */
+        .container {
+            padding: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #f0e6ff;
+        }
+
+        /* Contact Form Styling */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #2E236C;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form label {
+            font-size: 16px;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .contact-form input[type="text"],
+        .contact-form input[type="email"],
+        .contact-form textarea {
+            width: 90%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            background-color: #474F7A;
+            color: #ffffff;
+        }
+
+        .contact-form textarea {
+            height: 150px;
+            resize: none;
+        }
+
+        .contact-form button {
+            background-color: #81689D;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%; /* Full width */
+        }
+
+        .contact-form button:hover {
+            background-color: #6B5196;
+        }
+
+        /* Contact Information */
+        .contact-info {
+            max-width: 600px;
+            margin: 40px auto;
+            text-align: center;
+            background-color: #2E236C;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-info p {
+            margin: 10px 0;
+        }
+
+        /* Footer styling */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: #ffffff;
+            margin-top: 20px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .contact-form,
+            .contact-info {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Section -->
+    <div class="navbar">
+        <button class="open-btn" onclick="openNav()">☰</button>
+        <div class="navbar-center">
+            <h1>Anitorium</h1>
+        </div>
+        <a href="login.html">Login</a>
+    </div>
+
+    <!-- Sidebar Section -->
+    <div id="mySidebar" class="sidebar">
+        <span class="close-btn" onclick="closeNav()">&times;</span>
+        <div class="sidebar-search">
+            <input type="text" placeholder="Search..">
+            <button type="submit">Go</button>
+        </div>
+        <a href="index.html">Home</a>
+        <a href="start watching.html">Start Watching</a>
+        <a href="upcomings.html">up comings</a>
+        <a href="#">Genres</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+    <!-- Contact Page Main Content -->
+    <div class="container">
+        <h1>Contact Us</h1>
+
+        <!-- Contact Form Section -->
+        <div class="contact-form">
+            <form action="#">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name">
+
+                <label for="email">Your Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email">
+
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Write your message here"></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+
+        <!-- Contact Information Section -->
+        <div class="contact-info">
+            <h3>Contact Information</h3>
+            <p><strong>Address:</strong> Unknown</p>
+            <p><strong>Phone:</strong> +91 9431372134 </p>
+            <p><strong>Email:</strong> anistream20@gmail.com</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Anime Streaming. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JavaScript for Sidebar -->
+    <script>
+        function openNav() {
+            document.getElementById("mySidebar").style.left = "0";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidebar").style.left = "-250px";
+        }
+    </script>
+</body>
+</html>
